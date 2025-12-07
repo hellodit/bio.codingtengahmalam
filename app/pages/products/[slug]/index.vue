@@ -1,15 +1,17 @@
 <template>
   <UContainer class="py-3">
     <div v-if="!pending && product" class="max-w-4xl mx-auto space-y-8">
-      <!-- Back Button with Avatar -->
-      <NuxtLink to="/" class="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors mb-6">
-        <img
-          :src="profile.avatar"
-          :alt="profile.name"
-          class="w-10 h-10 rounded-full object-cover"
-        />
-        <span class="font-medium">Kembali ke halaman utama</span>
-      </NuxtLink>
+      <div class="flex justify-center mb-6">
+        <NuxtLink
+          to="/"
+          class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          <span class="font-medium">Kembali ke halaman utama</span>
+        </NuxtLink>
+      </div>
 
       <!-- Product Image -->
       <div class="relative aspect-video overflow-hidden rounded-lg shadow-lg">
@@ -30,56 +32,62 @@
             variant="solid"
             size="lg"
           />
-          <h1 class="text-4xl font-bold text-gray-900 dark:text-white">
+          <h1 class="text-2xl font-bold text-gray-900 dark:text-white">
             {{ product.title || product.name }}
           </h1>
-          <p v-if="product.summary" class="text-lg text-gray-600 dark:text-gray-400">
+          <p v-if="product.summary" class="text-sm text-gray-600 dark:text-gray-400">
             {{ product.summary }}
           </p>
         </div>
 
         <!-- Price -->
-        <div class="space-y-2 pb-6 border-b border-gray-200 dark:border-gray-700">
-          <div class="text-sm font-medium text-gray-600 dark:text-gray-400">
-            Harga:
-          </div>
-          <div class="flex items-center gap-3">
-            <span
-              v-if="product.originalPrice > product.price"
-              class="text-2xl text-gray-500 line-through"
-            >
-              Rp {{ formatPrice(product.originalPrice) }}
+        <div class="pb-6 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+          <div class="grid grid-cols-2 items-baseline gap-4">
+            <span class="text-sm text-gray-600 dark:text-gray-400">
+              Harga:
             </span>
-            <span v-if="product.price > 0" class="text-3xl font-bold text-primary-600 dark:text-primary-400">
-              Rp {{ formatPrice(product.price) }}
-            </span>
-            <span v-else class="text-3xl font-bold text-green-600 dark:text-green-400">
-              FREE
-            </span>
+            <div class="flex items-baseline gap-2">
+              <span
+                v-if="product.originalPrice > product.price"
+                class="text-sm text-gray-500 dark:text-gray-500 line-through"
+              >
+                Rp {{ formatPrice(product.originalPrice) }}
+              </span>
+              <span v-if="product.price > 0" class="text-2xl font-bold text-gray-900 dark:text-white">
+                Rp {{ formatPrice(product.price) }}
+              </span>
+              <span v-else class="text-2xl font-bold text-green-600 dark:text-green-400">
+                FREE
+              </span>
+            </div>
           </div>
         </div>
 
         <!-- Description Content -->
-        <div v-if="productData" class="prose prose-lg prose-gray dark:prose-invert max-w-none">
+        <div v-if="productData" class="prose prose-lg prose-gray dark:prose-invert max-w-none pb-24">
           <ContentRenderer :value="productData" />
         </div>
+      </div>
+    </div>
 
-        <!-- CTA Button -->
-        <div v-if="product" class="pt-8 border-t border-gray-200 dark:border-gray-700">
+    <!-- Floating CTA Button -->
+    <div v-if="!pending && product" class="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg">
+      <UContainer class="py-4">
+        <div class="max-w-lg mx-auto">
           <UButton
             :to="`/products/${product.slug}/checkout`"
-            size="xl"
+            size="sm"
             color="primary"
             block
-            class="text-lg font-semibold py-6"
+            class="text-sm font-semibold py-3"
           >
             {{ product.ctaLabel || `Dapatkan ${product.title || product.name}` }}
           </UButton>
-          <p v-if="product.ctaHelperText || product.bonus" class="text-center text-sm text-gray-600 dark:text-gray-400 mt-3">
+          <p v-if="product.ctaHelperText || product.bonus" class="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">
             {{ product.ctaHelperText || product.bonus }}
           </p>
         </div>
-      </div>
+      </UContainer>
     </div>
 
     <!-- Loading State -->
