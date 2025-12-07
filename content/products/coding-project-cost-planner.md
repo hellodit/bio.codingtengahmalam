@@ -1,7 +1,7 @@
 ---
 title: Coding Project Cost Planner
 slug: coding-project-cost-planner
-image: /products/coding-project-cost-planner.jpg
+image: /products/coding-project-planner.png
 price: 0
 originalPrice: 0
 category: tool

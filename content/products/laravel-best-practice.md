@@ -1,7 +1,7 @@
 ---
 title: Belajar Membuat Aplikasi Laravel Sesuai Standar Best Practice
 slug: laravel-best-practice
-image: /products/laravel-best-practice.jpg
+image: /products/belajar-membuat-aplikasi-laravel-bp.jpeg
 price: 99000
 originalPrice: 199000
 category: course

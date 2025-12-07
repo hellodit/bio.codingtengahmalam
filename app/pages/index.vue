@@ -17,39 +17,10 @@ import FeaturedLinks from '~/components/links/FeaturedLinks.vue';
 const profile = useProfile()
 
 // Fetch products from content
-const { data: productsData } = await useAsyncData('products', () => 
-  queryContent('/products')
-    .where({ _type: 'markdown' })
-    .find()
-)
-
-const products = computed(() => {
-  return productsData.value?.map((item: any) => ({
-    title: item.title,
-    slug: item.slug,
-    image: item.image,
-    price: item.price || 0,
-    originalPrice: item.originalPrice || 0,
-    category: item.category,
-    order: item.order || 0
-  })) || []
-})
+const { products } = await useProducts()
 
 // Fetch featured links from content
-const { data: linksData } = await useAsyncData('links', () =>
-  queryContent('/links')
-    .where({ _type: 'markdown' })
-    .find()
-)
-
-const featuredLinks = computed(() => {
-  return linksData.value?.map((item: any) => ({
-    title: item.title,
-    url: item.url,
-    icon: item.icon,
-    order: item.order || 0
-  })) || []
-})
+const { featuredLinks } = await useFeaturedLinks()
 
 // Set page metadata
 useHead({

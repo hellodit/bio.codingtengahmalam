@@ -1,7 +1,7 @@
 ---
 title: Minimalist - Link in Bio Template
 slug: minimalist-link-in-bio
-image: /products/minimalist-link-in-bio.jpg
+image: /products/linkinbio.png
 price: 0
 originalPrice: 0
 category: template

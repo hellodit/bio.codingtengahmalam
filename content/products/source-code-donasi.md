@@ -1,7 +1,7 @@
 ---
 title: Source Code Laravel Best Practice - Platform Penggalangan Donasi dengan Pembayaran Otomatis
 slug: source-code-donasi
-image: /products/source-code-donasi.jpg
+image: /products/source-code-donasi.jpeg
 price: 150000
 originalPrice: 300000
 category: source-code
