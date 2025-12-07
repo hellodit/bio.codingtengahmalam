@@ -7,6 +7,8 @@ originalPrice: 0
 category: template
 featured: true
 order: 4
+purchaseUrl: https://github.com/codingtengahmalam/minimalist-link-in-bio
+bonus: Open source & gratis selamanya.
 ---
 
 Template minimalist untuk membuat link in bio page yang modern dan responsif.

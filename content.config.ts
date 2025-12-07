@@ -14,7 +14,9 @@ export default defineContentConfig({
         originalPrice: z.number(),
         category: z.string(),
         featured: z.boolean(),
-        order: z.number()
+        order: z.number(),
+        purchaseUrl: z.string().optional(),
+        bonus: z.string().optional()
       })
     }),
     links: defineCollection({

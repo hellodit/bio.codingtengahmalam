@@ -7,6 +7,8 @@ originalPrice: 300000
 category: source-code
 featured: true
 order: 2
+purchaseUrl: https://codingtengahmalam.myr.id/pl/source-code-donasi
+bonus: Update gratis untuk versi terbaru & dokumentasi lengkap.
 ---
 
 Source code lengkap platform penggalangan donasi dengan integrasi pembayaran otomatis menggunakan Laravel Best Practice.
