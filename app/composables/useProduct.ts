@@ -36,7 +36,8 @@ export const useProduct = async (slug: string) => {
       ctaLabel: item.ctaLabel || '',
       ctaHelperText: item.ctaHelperText || item.bonus || '',
       bonus: item.ctaHelperText || item.bonus || '',
-      type: item.type || 'product'
+      type: item.type || 'product',
+      scalev_variant_id: item.scalev_variant_id ?? ''
     }
   })
 

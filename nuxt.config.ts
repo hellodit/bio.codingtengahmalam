@@ -33,5 +33,15 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1'
     }
+  },
+  
+  // Runtime config for environment variables
+  runtimeConfig: {
+    scalevApiKey: process.env.SCALEV_API_KEY,
+    scalevStoreUniqueId: process.env.SCALEV_STORE_UNIQUE_ID,
+    scalevApiBaseUrl: process.env.SCALEV_API_BASE_URL || 'https://api.scalev.id',
+    public: {
+      // Public runtime config (exposed to client) can go here if needed
+    }
   }
 })

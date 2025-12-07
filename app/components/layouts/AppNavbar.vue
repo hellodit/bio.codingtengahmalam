@@ -6,25 +6,18 @@
           <UButton
             to="/"
             variant="ghost"
-            color="gray"
+            color="neutral"
             class="font-medium"
           >
             Home
           </UButton>
-          <UButton
-            to="/articles"
-            variant="ghost"
-            color="gray"
-            class="font-medium"
-          >
-            Artikel
-          </UButton>
+
         </div>
         
         <UButton
           :icon="isDark ? 'i-heroicons-sun' : 'i-heroicons-moon'"
           variant="ghost"
-          color="gray"
+          color="neutral"
           @click="toggleTheme"
           aria-label="Toggle theme"
         />

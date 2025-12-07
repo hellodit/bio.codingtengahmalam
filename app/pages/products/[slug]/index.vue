@@ -65,10 +65,9 @@
         </div>
 
         <!-- CTA Button -->
-        <div v-if="product.purchaseUrl || product.url" class="pt-8 border-t border-gray-200 dark:border-gray-700">
+        <div v-if="product" class="pt-8 border-t border-gray-200 dark:border-gray-700">
           <UButton
-            :to="product.url || product.purchaseUrl"
-            external
+            :to="`/products/${product.slug}/checkout`"
             size="xl"
             color="primary"
             block

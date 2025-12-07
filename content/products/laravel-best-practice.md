@@ -14,6 +14,7 @@ summary: Panduan praktis untuk naik level dalam membangun aplikasi Laravel yang 
 position: 1
 ctaLabel: "Dapatkan eBook Laravel Best Practice"
 ctaHelperText: "Bonus mindset developer modern & update gratis setiap rilis Laravel."
+scalev_variant_id: "eqweqe21324234"
 ---
 
 ## Naik Level dalam Membangun Aplikasi Laravel

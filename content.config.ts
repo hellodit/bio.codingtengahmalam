@@ -23,6 +23,7 @@ export default defineContentConfig({
         position: z.number().optional(),
         ctaLabel: z.string().optional(),
         ctaHelperText: z.string().optional(),
+        scalev_variant_id: z.string().optional(),
         // Legacy fields for backward compatibility
         title: z.string().optional(),
         image: z.string().optional(),

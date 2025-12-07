@@ -2,7 +2,7 @@ export const profileData = {
   name: "Asdita Prasetya",
   username: "@codingtengahmalam",
   bio: "Saya Bantuin software engineer upgrade skill lebih cepat",
-  avatar: "/images/avatar.jpg",
+  avatar: "/images/avatar.png",
   socialLinks: [
     {
       platform: "Instagram",
