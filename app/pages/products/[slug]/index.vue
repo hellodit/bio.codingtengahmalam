@@ -4,7 +4,7 @@
     <template v-if="!pending && product">
     
       <div class="max-w-lg mx-auto space-y-8">
-      
+
         <!-- Product Image -->
         <div class="relative aspect-video overflow-hidden rounded-lg shadow-lg">
           <img
@@ -56,7 +56,7 @@
           </div>
 
           <!-- Description Content -->
-          <div v-if="productData" class="prose prose-lg prose-gray dark:prose-invert max-w-none pb-24">
+          <div v-if="productData" class="prose prose-lg prose-gray dark:prose-invert max-w-none pb-5">
             <ContentRenderer :value="productData" />
           </div>
         </div>
