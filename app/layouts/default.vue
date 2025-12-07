@@ -1,8 +1,8 @@
 <template>
-  <div class="min-h-screen bg-white dark:bg-gray-900 flex flex-col">
+  <div class="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col">
     <AppNavbar />
     <main class="flex-1 w-full">
-      <div class="w-full max-w-2xl mx-auto px-4 sm:px-6 py-6 sm:py-8 border-x border-gray-200 dark:border-gray-800">
+      <div class="w-full max-w-xl mx-auto sm:py-8 border-x bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800 rounded-lg">
         <slot />
       </div>
     </main>

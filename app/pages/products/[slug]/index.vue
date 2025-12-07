@@ -1,5 +1,5 @@
 <template>
-  <UContainer class="py-6">
+  <UContainer class="py-3">
     <div v-if="!pending && product" class="max-w-4xl mx-auto space-y-8">
       <!-- Back Button with Avatar -->
       <NuxtLink to="/" class="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors mb-6">

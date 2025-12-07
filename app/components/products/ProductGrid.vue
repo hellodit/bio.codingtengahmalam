@@ -2,7 +2,7 @@
   <div>
     <ProductFilter @filter="handleFilter" />
     
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="grid grid-cols-1">
       <ProductCard
         v-for="product in filteredProducts"
         :key="product.slug"
@@ -50,11 +50,11 @@ const filteredProducts = computed(() => {
       filtered.sort((a, b) => b.price - a.price)
       break
     case 'name-asc':
-      filtered.sort((a, b) => (a.title || a.name || '').localeCompare(b.title || b.name || ''))
+      filtered.sort((a, b) => (a.title || '').localeCompare(b.title || ''))
       break
     case 'order':
     default:
-      filtered.sort((a, b) => (a.position || a.order || 0) - (b.position || b.order || 0))
+        filtered.sort((a, b) => (a.order || 0) - (b.order || 0))
       break
   }
 
