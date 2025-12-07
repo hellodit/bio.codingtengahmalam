@@ -9,11 +9,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   
   // Route rules for prerendering (Vercel best practice)
+  // These ensure content routes are discovered and prerendered during build
   routeRules: {
     // Prerender homepage
     '/': { prerender: true },
-    // Prerender all product pages
-    '/products/**': { prerender: true }
+    // Prerender all product pages (content from content/products)
+    '/products/**': { prerender: true },
+    // Prerender link pages if they exist as routes (content from content/links)
+    '/links/**': { prerender: true }
   },
   
   // Nitro configuration for static generation
@@ -22,12 +25,24 @@ export default defineNuxtConfig({
       // Automatically discover and prerender linked pages
       crawlLinks: true,
       // Don't fail build if some routes can't be prerendered
-      failOnError: false
+      failOnError: false,
+      // Explicitly include routes that may not be linked from the homepage
+      // Add specific paths here if they're not discovered by crawlLinks
+      routes: [
+        // Example: '/blog/my-post', '/custom-page'
+        // Currently relying on crawlLinks to discover product and link pages
+      ]
     }
   },
   
   // Content module configuration
   content: {
+    // Enable document-driven mode for content pages
+    // This allows pages to be automatically generated from content files
+    documentDriven: true,
+    // Enable navigation generation from content structure
+    // Useful for building menus and breadcrumbs from content hierarchy
+    navigation: true,
     highlight: {
       theme: 'github-dark'
     }
