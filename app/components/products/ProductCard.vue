@@ -1,10 +1,10 @@
 <template>
   <UCard
     :to="`/products/${product.slug}`"
-    class="group hover:shadow-lg transition-shadow duration-200"
+    class="group hover:shadow-lg transition-shadow duration-200 overflow-hidden"
   >
     <template #header>
-      <div class="relative aspect-video overflow-hidden rounded-t-lg">
+      <div class="relative aspect-video overflow-hidden -m-4 sm:-m-6 mb-0">
         <img
           :src="product.image"
           :alt="product.title"
