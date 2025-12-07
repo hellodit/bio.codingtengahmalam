@@ -5,7 +5,7 @@
       :key="social.platform"
       :to="social.url"
       external
-      variant="ghost"
+      variant="subtle"
       :icon="social.icon"
       :aria-label="social.platform"
       size="lg"

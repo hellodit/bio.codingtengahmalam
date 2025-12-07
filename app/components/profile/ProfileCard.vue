@@ -1,16 +1,15 @@
 <template>
   <div class="flex flex-col items-center text-center space-y-4 py-6">
-    <UAvatar
+    <img
       :src="profile.avatar"
       :alt="profile.name"
-      size="3xl"
-      class="ring-4 ring-primary-500 dark:ring-primary-400"
+      class="w-32 h-32 rounded-full object-cover"
     />
     
     <div class="space-y-2">
-      <p class="text-sm font-medium text-gray-500 dark:text-gray-400">
+      <UBadge color="neutral" size="lg" variant="subtle">
         {{ profile.username }}
-      </p>
+      </UBadge>
       <h1 class="text-2xl font-bold text-gray-900 dark:text-white">
         {{ profile.name }}
       </h1>
