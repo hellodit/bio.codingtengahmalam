@@ -1,4 +1,6 @@
-# Nuxt Minimal Starter
+# bio.codingtengahmalam.com
+
+Repository untuk website bio.codingtengahmalam.com
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
