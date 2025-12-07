@@ -66,15 +66,14 @@
       <div class="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg">
         <UContainer class="py-4">
           <div class="max-w-lg mx-auto">
-            <UButton
-              :to="`/products/${product.slug}/checkout`"
-              size="sm"
-              color="primary"
-              block
-              class="text-sm font-semibold py-3"
+            <a 
+              class="mayar-button  block w-full text-center text-sm font-semibold py-3 px-4 bg-primary-500 hover:bg-primary-600 text-white rounded-lg transition-colors"
+              :href="product.url"
+              data-padding-bottom="30%"
+              data-scrolling="true"
             >
-              {{ product.ctaLabel || `Dapatkan ${product.title || product.name}` }}
-            </UButton>
+              <span></span>{{ product.ctaLabel || `Beli Sekarang` }}
+            </a>
             <p v-if="product.ctaHelperText || product.bonus" class="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">
               {{ product.ctaHelperText || product.bonus }}
             </p>
@@ -127,6 +126,13 @@ useHead({
       content: product.value?.title 
         ? `${product.value.title} - Detail produk`
         : 'Detail produk'
+    }
+  ],
+  script: [
+    {
+      src: 'https://mayarembed.r2.mayar.id/mayar-new-min.js',
+      type: 'text/javascript',
+      defer: true
     }
   ]
 })
