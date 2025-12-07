@@ -8,17 +8,21 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   devtools: { enabled: true },
   
-  // Route rules for prerendering
+  // Route rules for prerendering (Vercel best practice)
   routeRules: {
+    // Prerender homepage
     '/': { prerender: true },
+    // Prerender all product pages
     '/products/**': { prerender: true }
   },
   
-  // Static generation for optimal performance
+  // Nitro configuration for static generation
   nitro: {
     prerender: {
-      crawlLinks: true, // Automatically discover and prerender linked pages
-      failOnError: false // Don't fail build if some routes can't be prerendered
+      // Automatically discover and prerender linked pages
+      crawlLinks: true,
+      // Don't fail build if some routes can't be prerendered
+      failOnError: false
     }
   },
   
