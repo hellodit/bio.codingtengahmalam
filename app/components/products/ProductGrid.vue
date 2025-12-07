@@ -50,11 +50,11 @@ const filteredProducts = computed(() => {
       filtered.sort((a, b) => b.price - a.price)
       break
     case 'name-asc':
-      filtered.sort((a, b) => a.title.localeCompare(b.title))
+      filtered.sort((a, b) => (a.title || a.name || '').localeCompare(b.title || b.name || ''))
       break
     case 'order':
     default:
-      filtered.sort((a, b) => (a.order || 0) - (b.order || 0))
+      filtered.sort((a, b) => (a.position || a.order || 0) - (b.position || b.order || 0))
       break
   }
 

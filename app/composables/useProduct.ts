@@ -12,18 +12,31 @@ export const useProduct = async (slug: string) => {
   const product = computed(() => {
     if (!productData.value) return null
     
+    const item = productData.value
+    
+    // Support both new and legacy field names
     return {
-      title: productData.value.title,
-      slug: productData.value.slug,
-      image: productData.value.image,
-      price: productData.value.price || 0,
-      originalPrice: productData.value.originalPrice || 0,
-      category: productData.value.category,
-      featured: productData.value.featured,
-      order: productData.value.order || 0,
-      body: productData.value.body,
-      purchaseUrl: productData.value.purchaseUrl,
-      bonus: productData.value.bonus
+      id: item.id,
+      slug: item.slug,
+      title: item.name || item.title || '',
+      name: item.name || item.title || '',
+      image: item.coverImage || item.image || item.thumbnail || '',
+      thumbnail: item.thumbnail || item.image || '',
+      coverImage: item.coverImage || item.image || '',
+      price: item.price || 0,
+      originalPrice: item.original_price || item.originalPrice || 0,
+      category: item.category || '',
+      featured: item.is_featured !== undefined ? item.is_featured : (item.featured || false),
+      order: item.position || item.order || 0,
+      position: item.position || item.order || 0,
+      summary: item.summary || '',
+      body: item.body,
+      purchaseUrl: item.url || item.purchaseUrl || '',
+      url: item.url || item.purchaseUrl || '',
+      ctaLabel: item.ctaLabel || '',
+      ctaHelperText: item.ctaHelperText || item.bonus || '',
+      bonus: item.ctaHelperText || item.bonus || '',
+      type: item.type || 'product'
     }
   })
 

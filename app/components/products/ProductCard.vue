@@ -6,8 +6,8 @@
       <template #header>
         <div class="relative aspect-video overflow-hidden -m-4 sm:-m-6 mb-0">
           <img
-            :src="product.image"
-            :alt="product.title"
+            :src="product.image || product.coverImage || product.thumbnail"
+            :alt="product.title || product.name"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
             loading="lazy"
           />
@@ -16,7 +16,7 @@
 
       <div class="space-y-2">
         <h3 class="font-semibold text-gray-900 dark:text-white line-clamp-2">
-          {{ product.title }}
+          {{ product.title || product.name }}
         </h3>
         
         <div class="flex items-center gap-2">

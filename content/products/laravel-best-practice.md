@@ -1,14 +1,77 @@
 ---
-title: Belajar Membuat Aplikasi Laravel Sesuai Standar Best Practice
+id: laravel-best-practice
 slug: laravel-best-practice
-image: /products/belajar-membuat-aplikasi-laravel-bp.jpeg
+category: Produk Digital
+type: product
+name: Belajar Membuat Aplikasi Laravel Sesuai Standar Best Practice
+thumbnail: /products/belajar-membuat-aplikasi-laravel-blue.jpeg
+coverImage: /products/belajar-membuat-aplikasi-laravel-bp.jpeg
+url: https://codingtengahmalam.myr.id/pl/laravel-best-practice
 price: 99000
-originalPrice: 199000
-category: course
-featured: true
-order: 1
-purchaseUrl: https://codingtengahmalam.myr.id/pl/laravel-best-practice
-bonus: Bonus mindset developer modern & update gratis setiap rilis Laravel.
+original_price: 199000
+is_featured: true
+summary: Panduan praktis untuk naik level dalam membangun aplikasi Laravel yang profesional dan scalable.
+position: 1
+ctaLabel: "Dapatkan eBook Laravel Best Practice"
+ctaHelperText: "Bonus mindset developer modern & update gratis setiap rilis Laravel."
 ---
 
-Belajar membuat aplikasi Laravel sesuai standar best practice yang digunakan di industri.
+## Naik Level dalam Membangun Aplikasi Laravel
+
+eBook **"Belajar Membuat Aplikasi Laravel Sesuai Standar Best Practice"** hadir sebagai panduan praktis untuk kamu yang ingin naik level dalam membangun aplikasi Laravel — dari sekadar "asal jalan" menjadi aplikasi yang profesional, rapi, dan siap di-scale.
+
+## 📋 Daftar Isi
+
+<SneakPeek
+  productName="Belajar Membuat Aplikasi Laravel Sesuai Standar Best Practice"
+  images={[
+    "/products/ebook-laravel/daftar-isi-1.png",
+    "/products/ebook-laravel/daftar-isi-2.png", 
+    "/products/ebook-laravel/daftar-isi-3.png"
+  ]}
+/>
+
+<FeatureGrid
+  columns={1}
+  items={[
+    {
+      title: "Cara menulis kode Laravel sesuai standar PSR-12",
+      description: "Belajar menulis kode yang clean, mudah dibaca, dan konsisten mengikuti standar industri."
+    },
+    {
+      title: "Penerapan prinsip SOLID dan DRY dalam Laravel",
+      description: "Implementasi prinsip arsitektur dan design pattern agar kode lebih terstruktur serta gampang dirawat."
+    },
+    {
+      title: "Teknik optimasi performa dengan Queue dan Redis",
+      description: "Strategi meningkatkan performa aplikasi melalui background jobs, antrian, dan caching."
+    },
+    {
+      title: "Struktur routing dan repository untuk project besar",
+      description: "Organisasi kode yang scalable dan siap dipakai di aplikasi enterprise maupun tim dengan banyak developer."
+    },
+    {
+      title: "Logging & monitoring yang bikin debugging lebih nyaman",
+      description: "Setup observability yang tepat sehingga troubleshooting dan maintenance jadi lebih cepat dan efisien."
+    },
+    {
+      title: "Studi kasus nyata: Aplikasi Donasi Online terintegrasi Midtrans",
+      description: "Penerapan konsep langsung dalam project real-world dengan integrasi payment gateway yang kompleks."
+    }
+  ]}
+/>
+
+## 👥 Siapa yang Cocok Baca eBook Ini?
+
+- **Pemula** yang ingin belajar Laravel dengan pondasi yang benar  
+- **Developer menengah** yang ingin meningkatkan kualitas arsitektur aplikasi  
+- **Tim dev** yang butuh standar seragam untuk project Laravel bersama  
+
+## 🔁 Selalu Update Sesuai Perkembangan Laravel
+
+Materi dalam eBook ini tidak berhenti di satu versi saja. Setiap kali Laravel rilis update, praktik terbaik terbaru atau pola arsitektur modern akan terus ditambahkan. Kamu juga akan otomatis mendapat update versi berikutnya — tanpa biaya tambahan.
+
+## 🛠️ Dibuat oleh Developer, untuk Developer
+
+eBook ini bukan kumpulan dokumentasi copy-paste, tapi hasil pengalaman nyata membangun aplikasi Laravel untuk produk yang benar-benar digunakan user.
+

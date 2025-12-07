@@ -25,14 +25,17 @@
         <!-- Badge and Title -->
         <div class="space-y-3">
           <UBadge
-            label="Produk Digital"
+            :label="product.category || 'Produk Digital'"
             color="primary"
             variant="solid"
             size="lg"
           />
           <h1 class="text-4xl font-bold text-gray-900 dark:text-white">
-            {{ product.title }}
+            {{ product.title || product.name }}
           </h1>
+          <p v-if="product.summary" class="text-lg text-gray-600 dark:text-gray-400">
+            {{ product.summary }}
+          </p>
         </div>
 
         <!-- Price -->
@@ -62,19 +65,19 @@
         </div>
 
         <!-- CTA Button -->
-        <div v-if="product.purchaseUrl" class="pt-8 border-t border-gray-200 dark:border-gray-700">
+        <div v-if="product.purchaseUrl || product.url" class="pt-8 border-t border-gray-200 dark:border-gray-700">
           <UButton
-            :to="product.purchaseUrl"
+            :to="product.url || product.purchaseUrl"
             external
             size="xl"
             color="primary"
             block
             class="text-lg font-semibold py-6"
           >
-            Dapatkan {{ product.title }}
+            {{ product.ctaLabel || `Dapatkan ${product.title || product.name}` }}
           </UButton>
-          <p v-if="product.bonus" class="text-center text-sm text-gray-600 dark:text-gray-400 mt-3">
-            {{ product.bonus }}
+          <p v-if="product.ctaHelperText || product.bonus" class="text-center text-sm text-gray-600 dark:text-gray-400 mt-3">
+            {{ product.ctaHelperText || product.bonus }}
           </p>
         </div>
       </div>
