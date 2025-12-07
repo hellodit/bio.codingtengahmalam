@@ -8,10 +8,17 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   devtools: { enabled: true },
   
+  // Route rules for prerendering
+  routeRules: {
+    '/': { prerender: true },
+    '/products/**': { prerender: true }
+  },
+  
   // Static generation for optimal performance
   nitro: {
     prerender: {
-      routes: ['/']
+      crawlLinks: true, // Automatically discover and prerender linked pages
+      failOnError: false // Don't fail build if some routes can't be prerendered
     }
   },
   
