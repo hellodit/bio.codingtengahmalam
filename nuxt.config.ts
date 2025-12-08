@@ -3,7 +3,8 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   modules: [
     '@nuxt/ui',
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxtjs/mdc'
   ],
   css: ['~/assets/css/main.css'],
   devtools: { enabled: true },
@@ -31,6 +32,25 @@ export default defineNuxtConfig({
     highlight: {
       theme: 'github-dark'
     }
+  },
+  
+  // MDC configuration
+  mdc: {
+    components: {
+      prose: true,
+      map: {
+        // Custom component mapping
+      }
+    },
+    highlight: {
+      theme: 'github-dark'
+    }
+  },
+  
+  // Global components registration for MDC
+  components: {
+    global: true,
+    path: './app/components'
   },
   
   // Performance optimizations

@@ -57,6 +57,7 @@
 
           <!-- Description Content -->
           <div v-if="productData" class="prose prose-lg prose-gray dark:prose-invert max-w-none pb-5">
+            <!-- Use ContentRenderer which supports MDC components -->
             <ContentRenderer :value="productData" />
           </div>
         </div>
