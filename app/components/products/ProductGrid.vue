@@ -4,7 +4,7 @@
       Penawaran Terbaru
     </h2>
 
-    <div class="grid grid-cols-1">
+    <div class="grid grid-cols-2 gap-4">
       <ProductCard
         v-for="product in filteredProducts"
         :key="product.slug"
