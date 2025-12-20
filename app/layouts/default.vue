@@ -3,7 +3,7 @@
     <AppNavbar />
       
     <main class="max-w-xl mx-auto">
-      <div class="bg-white border-x">
+      <div class="bg-white dark:bg-gray-800 border-x border-border">
         <slot />
       </div>
     </main>

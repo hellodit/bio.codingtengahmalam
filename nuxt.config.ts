@@ -7,6 +7,13 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxtjs/mdc'
   ],
+  
+  colorMode: {
+    preference: 'light',
+    fallback: 'light',
+    classSuffix: '',
+    storageKey: 'nuxt-color-mode'
+  },
   css: ['~/assets/css/main.css'],
   devtools: { enabled: true },
   
@@ -31,7 +38,13 @@ export default defineNuxtConfig({
   app: {
     head: {
       charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1'
+      viewport: 'width=device-width, initial-scale=1',
+      script: [
+        {
+          innerHTML: `document.documentElement.classList.remove('dark'); try { localStorage.removeItem('nuxt-color-mode'); } catch(e) {}`,
+          type: 'text/javascript'
+        }
+      ]
     }
   },
 })

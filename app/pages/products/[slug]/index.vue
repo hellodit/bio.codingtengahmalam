@@ -1,5 +1,5 @@
 <template>
-  <UContainer class="py-2">
+  <UContainer class="py-2 dark:bg-gray-800">
     <!-- Product Content -->
     <template v-if="!pending && product">
     

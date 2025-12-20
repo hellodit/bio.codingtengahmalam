@@ -1,7 +1,7 @@
 <template>
   <NuxtLink 
     :to="`/products/${product.slug}`" 
-    class="block bg-card rounded-lg border border-border hover:bg-accent transition-all duration-200 w-full overflow-hidden group shadow-sm hover:shadow-md"
+    class="block bg-card rounded-lg border border-border dark:border-border/50 hover:bg-accent transition-all duration-200 w-full overflow-hidden group shadow-sm hover:shadow-md"
   >
     <div class="flex flex-col">
       <!-- Image Section as Header -->
@@ -24,7 +24,7 @@
         
         <div class="space-y-1">
           <div class="flex items-center gap-2 flex-wrap">
-            <span v-if="product.price > 0" class="text-base sm:text-sm font-bold text-red-600 bg-red-100 rounded-md px-1 py-1">
+            <span v-if="product.price > 0" class="text-base sm:text-sm font-bold text-destructive bg-destructive/10 dark:bg-destructive/20 rounded-md px-1 py-1">
               Rp{{ formatPrice(product.price) }}
             </span>
             <span v-else class="text-base sm:text-sm font-bold text-primary">
@@ -33,7 +33,7 @@
             
             <span
               v-if="product.originalPrice && product.originalPrice > product.price"
-              class="text-xs sm:text-sm text-muted-foreground line-through text"
+              class="text-xs sm:text-sm text-muted-foreground line-through"
             >
               Rp{{ formatPrice(product.originalPrice) }}
             </span>

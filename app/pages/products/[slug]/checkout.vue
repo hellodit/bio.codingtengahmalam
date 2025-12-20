@@ -1,5 +1,5 @@
 <template>
-  <UContainer class="py-6">
+  <UContainer class="py-6 dark:bg-gray-800">
     <div v-if="!pending && product" class="max-w-4xl mx-auto space-y-8">
       <!-- Back Button -->
       <NuxtLink 
