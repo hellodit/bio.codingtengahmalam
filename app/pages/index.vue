@@ -14,15 +14,40 @@ import ProductGrid from '~/components/products/ProductGrid.vue';
 import FeaturedLinks from '~/components/links/FeaturedLinks.vue';
 
 const profile = useProfile()
-
 const { products } = await useProducts()
-
 const { featuredLinks } = await useFeaturedLinks()
 
+const { getFullUrl, createPersonSchema, createOrganizationSchema, addStructuredData } = useStructuredData()
+const config = useRuntimeConfig()
+const siteUrl = config.public.siteUrl || 'https://codingtengahmalam.com'
+const pageTitle = `${profile.name} - ${profile.username}`
+const pageDescription = profile.bio || 'Saya Bantuin software engineer upgrade skill lebih cepat'
+const pageImage = getFullUrl(profile.avatar)
+const pageUrl = getFullUrl('/')
+
+// SEO Meta Tags
 useHead({
-  title: `${profile.name} - ${profile.username}`,
+  title: pageTitle,
   meta: [
-    { name: 'description', content: profile.bio }
+    { name: 'description', content: pageDescription },
+    
+    // Open Graph
+    { property: 'og:title', content: pageTitle },
+    { property: 'og:description', content: pageDescription },
+    { property: 'og:image', content: pageImage },
+    { property: 'og:url', content: pageUrl },
+    { property: 'og:type', content: 'profile' },
+    
+    // Twitter Card
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: pageTitle },
+    { name: 'twitter:description', content: pageDescription },
+    { name: 'twitter:image', content: pageImage },
+    { name: 'twitter:creator', content: profile.username }
   ]
 })
+
+// Structured Data
+addStructuredData(createPersonSchema(profile))
+addStructuredData(createOrganizationSchema(profile))
 </script>

@@ -118,16 +118,45 @@ const slug = route.params.slug as string
 const profile = useProfile()
 const { product, productData, pending } = await useProduct(slug)
 
-// Set page metadata
+const { getFullUrl, createProductSchema, createBreadcrumbSchema, addStructuredData } = useStructuredData()
+const config = useRuntimeConfig()
+const siteUrl = config.public.siteUrl || 'https://codingtengahmalam.com'
+
+// SEO Meta Tags
+const pageTitle = product.value 
+  ? `${product.value.title || product.value.name} - ${profile.name}` 
+  : 'Produk Tidak Ditemukan'
+const pageDescription = product.value?.summary || 
+  (product.value?.title 
+    ? `${product.value.title} - Detail produk digital dari ${profile.name}` 
+    : 'Detail produk')
+const pageImage = product.value?.image ? getFullUrl(product.value.image) : getFullUrl(profile.avatar)
+const pageUrl = getFullUrl(`/products/${slug}`)
+
 useHead({
-  title: product.value ? `${product.value.title} - Products` : 'Produk Tidak Ditemukan',
+  title: pageTitle,
   meta: [
-    {
-      name: 'description',
-      content: product.value?.title 
-        ? `${product.value.title} - Detail produk`
-        : 'Detail produk'
-    }
+    { name: 'description', content: pageDescription },
+    
+    // Open Graph
+    { property: 'og:title', content: pageTitle },
+    { property: 'og:description', content: pageDescription },
+    { property: 'og:image', content: pageImage },
+    { property: 'og:url', content: pageUrl },
+    { property: 'og:type', content: 'product' },
+    ...(product.value?.price ? [
+      { property: 'product:price:amount', content: product.value.price.toString() },
+      { property: 'product:price:currency', content: 'IDR' }
+    ] : []),
+    
+    // Twitter Card
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: pageTitle },
+    { name: 'twitter:description', content: pageDescription },
+    { name: 'twitter:image', content: pageImage }
+  ],
+  link: [
+    { rel: 'canonical', href: pageUrl }
   ],
   script: [
     {
@@ -137,6 +166,28 @@ useHead({
     }
   ]
 })
+
+// Structured Data
+if (product.value) {
+  addStructuredData(createProductSchema({
+    title: product.value.title || product.value.name || '',
+    name: product.value.name,
+    summary: product.value.summary,
+    image: product.value.image,
+    price: product.value.price,
+    originalPrice: product.value.originalPrice,
+    category: product.value.category,
+    url: product.value.url,
+    slug: product.value.slug
+  }))
+  
+  // Breadcrumb Schema
+  addStructuredData(createBreadcrumbSchema([
+    { name: 'Beranda', url: '/' },
+    { name: 'Produk', url: '/products' },
+    { name: product.value.title || product.value.name || 'Detail Produk', url: `/products/${slug}` }
+  ]))
+}
 
 function formatPrice(price: number): string {
   return new Intl.NumberFormat('id-ID').format(price)

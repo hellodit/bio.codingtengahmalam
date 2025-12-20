@@ -16,4 +16,35 @@ import AppFooter from '~/components/layouts/AppFooter.vue';
 import AppNavbar from '~/components/layouts/AppNavbar.vue';
 
 const profile = useProfile()
+const route = useRoute()
+const config = useRuntimeConfig()
+const { getFullUrl } = useStructuredData()
+
+const siteUrl = config.public.siteUrl || 'https://codingtengahmalam.com'
+const currentUrl = getFullUrl(route.path)
+const siteName = config.public.siteName || 'Coding Tengah Malam'
+const defaultDescription = config.public.siteDescription || profile.bio
+const defaultImage = getFullUrl(profile.avatar)
+
+// Default SEO meta tags
+useHead({
+  meta: [
+    // Open Graph
+    { property: 'og:site_name', content: siteName },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: currentUrl },
+    { property: 'og:image', content: defaultImage },
+    { property: 'og:locale', content: 'id_ID' },
+    
+    // Twitter Card
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:image', content: defaultImage },
+    
+    // Theme color for mobile browsers
+    { name: 'theme-color', content: '#ffffff' }
+  ],
+  link: [
+    { rel: 'canonical', href: currentUrl }
+  ]
+})
 </script>

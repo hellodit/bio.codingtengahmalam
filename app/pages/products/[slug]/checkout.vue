@@ -233,7 +233,12 @@ const form = reactive<CheckoutForm>({
 
 const errors = reactive<Partial<Record<keyof CheckoutForm, string>>>({})
 
-// Set page metadata
+const { getFullUrl } = useStructuredData()
+const config = useRuntimeConfig()
+const route = useRoute()
+const pageUrl = getFullUrl(route.path)
+
+// Set page metadata - Checkout pages should not be indexed
 useHead({
   title: product.value ? `Checkout - ${product.value.title}` : 'Checkout',
   meta: [
@@ -242,7 +247,11 @@ useHead({
       content: product.value?.title 
         ? `Checkout untuk ${product.value.title}`
         : 'Halaman checkout'
-    }
+    },
+    { name: 'robots', content: 'noindex, nofollow' }
+  ],
+  link: [
+    { rel: 'canonical', href: pageUrl }
   ]
 })
 
