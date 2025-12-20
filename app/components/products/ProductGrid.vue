@@ -1,7 +1,9 @@
 <template>
   <div>
-    <ProductFilter @filter="handleFilter" />
-    
+   <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">
+      Product Terbaru
+    </h2>
+
     <div class="grid grid-cols-1">
       <ProductCard
         v-for="product in filteredProducts"
@@ -13,7 +15,6 @@
 </template>
 
 <script setup lang="ts">
-import ProductFilter from './ProductFilter.vue';
 import ProductCard from './ProductCard.vue';
 
 interface Product {
@@ -61,8 +62,5 @@ const filteredProducts = computed(() => {
   return filtered
 })
 
-function handleFilter(category: string | null, sort: string) {
-  selectedCategory.value = category
-  sortBy.value = sort
-}
+
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <UContainer class="py-3 space-y-4">
+  <UContainer class="py-3 space-y-2">
     <ProfileCard :profile="profile" />
     
     <ProductGrid :products="products" />

@@ -1,7 +1,7 @@
 <template>
   <NuxtLink 
     :to="`/products/${product.slug}`" 
-    class="block bg-white dark:bg-gray-900 mb-3 rounded-lg border border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-200 w-full overflow-hidden group"
+    class="block bg-white dark:bg-gray-900 mb-3 rounded-lg border border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-200 w-full overflow-hidden group shadow-sm hover:shadow-md"
   >
     <div class="flex min-h-[130px]">
       <!-- Image Section -->
