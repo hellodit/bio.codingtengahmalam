@@ -37,7 +37,7 @@ export default defineNuxtConfig({
   // SEO Configuration
   runtimeConfig: {
     public: {
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://codingtengahmalam.com',
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://bio.codingtengahmalam.com',
       siteName: 'Coding Tengah Malam',
       siteDescription: 'Saya Bantuin software engineer upgrade skill lebih cepat',
       siteLocale: 'id'
@@ -54,12 +54,6 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ],
-      script: [
-        {
-          innerHTML: `document.documentElement.classList.remove('dark'); try { localStorage.removeItem('nuxt-color-mode'); } catch(e) {}`,
-          type: 'text/javascript'
-        }
-      ]
     }
   },
 })
