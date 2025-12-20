@@ -1,20 +1,16 @@
 <template>
   <UButton
     :to="link.url"
-    external
+    target="_blank"
     block
-    size="lg"
+    size="xl"
     variant="outline"
-    class="justify-between group"
+    trailing-icon="i-heroicons-arrow-top-right-on-square"
   >
-    <span class="flex items-center gap-2">
-      <span v-if="link.icon" class="text-xl">{{ link.icon }}</span>
+    <p class="py-1 text-center">
+      <span v-if="link.icon" class="text-xl text-gray-500 dark:text-gray-400 mr-2">{{ link.icon }}</span>
       <span>{{ link.title }}</span>
-    </span>
-    <UIcon
-      name="i-heroicons-arrow-top-right-on-square"
-      class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"
-    />
+    </p>
   </UButton>
 </template>
 
