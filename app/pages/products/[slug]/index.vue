@@ -1,85 +1,80 @@
 <template>
-  <UContainer class="py-2 dark:bg-gray-800">
+  <UContainer class="py-8 dark:bg-gray-800">
     <!-- Product Content -->
     <template v-if="!pending && product">
-    
       <div class="max-w-lg mx-auto space-y-8">
-
-        <!-- Product Image -->
-        <div class="relative aspect-video overflow-hidden rounded-lg shadow-lg">
-          <img
-            :src="product.image"
-            :alt="product.title"
-            class="w-full h-full object-cover"
-          />
-        </div>
-
         <!-- Product Info -->
-        <div class="space-y-6">
+        <div class="space-y-3">
           <!-- Badge and Title -->
-          <div class="space-y-3">
-            <UBadge
-              :label="product.category || 'Produk Digital'"
-              color="primary"
-              variant="solid"
-              size="lg"
-            />
+          <div class="space-y-2">
             <h1 class="text-2xl font-bold text-foreground">
               {{ product.title || product.name }}
             </h1>
-            <p v-if="product.summary" class="text-sm text-muted-foreground">
-              {{ product.summary }}
-            </p>
-          </div>
-
-          <!-- Price -->
-          <div class="pb-6 border border-border rounded-lg p-4">
-            <div class="grid grid-cols-2 items-baseline gap-4">
-              <span class="text-sm text-muted-foreground">
-                Harga:
+            <!-- Harga dan Diskon -->
+            <span
+              v-if="product.price !== undefined && product.price !== null && product.price > 0"
+              class=" text-xl md:text-sm font-bold text-foreground mb-1 bg-red-400 rounded-md px-1 py-1 text-white inline-block mr-2"
+            >
+              Rp{{ formatPrice(product.price) }}
+            </span>
+            <template v-if="product.originalPrice && product.originalPrice > product.price">
+              <span class="text-sm text-muted-foreground line-through mb-1 mr-2">
+                Rp {{ formatPrice(product.originalPrice) }}
               </span>
-              <div class="flex items-baseline gap-2">
-                <span
-                  v-if="product.originalPrice > product.price"
-                  class="text-sm text-muted-foreground line-through"
-                >
-                  Rp {{ formatPrice(product.originalPrice) }}
-                </span>
-                <span v-if="product.price > 0" class="text-2xl font-bold text-foreground">
-                  Rp {{ formatPrice(product.price) }}
-                </span>
-                <span v-else class="text-2xl font-bold text-primary">
-                  FREE
-                </span>
-              </div>
-            </div>
+            </template>
+            <span
+              v-else-if="product.price === 0"
+              class="block text-xl md:text-xl font-bold text-primary mb-1"
+            >
+              GRATIS
+            </span>
           </div>
+          <hr class="border-border dark:border-border/50"> 
+
 
           <!-- Description Content -->
-          <div v-if="productData" class="prose prose-lg prose-gray dark:prose-invert max-w-none pb-5">
+          <div v-if="productData" class="prose prose-lg prose-gray dark:prose-invert max-w-none pb-24">
             <!-- Use ContentRenderer which supports MDC components -->
             <ContentRenderer :value="productData" />
           </div>
         </div>
-      </div>
 
-      <!-- Floating CTA Button -->
-      <div class="fixed bottom-0 left-0 right-0 z-50 bg-card border-t border-border shadow-lg">
-        <UContainer class="py-4">
-          <div class="max-w-lg mx-auto">
-            <a 
-              class="mayar-button  block w-full text-center text-sm font-semibold py-3 px-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-colors"
-              :href="product.url"
-              data-padding-bottom="30%"
-              data-scrolling="true"
+        <!-- Floating CTA (Call To Action) Section -->
+        <div class="fixed bottom-0 left-0 right-0 z-50 border-t border-border shadow-lg bg-white dark:bg-gray-800 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95">
+          <div class="max-w-lg mx-auto px-4 py-4">
+            <div class="grid grid-cols-[1fr_3fr] gap-3">
+              <UButton
+                variant="outline"
+                icon="i-lucide-message-circle-more"
+                size="xl"
+                class="w-full justify-center"
+                to="https://instagram.com/codingtengahmalam"
+              >
+              </UButton>
+              
+              <!-- CTA Button: Beli Sekarang -->
+              <UButton
+                color="primary"
+                variant="solid"
+                :to="product.url"
+                size="xl"
+                trailing-icon="i-heroicons-arrow-right"
+                aria-label="Beli Sekarang"
+                class=""
+              >
+               <p class="py-1 text-center w-full">
+                Beli Sekarang
+              </p>
+              </UButton> 
+            </div>
+            <p
+              v-if="product.ctaHelperText || product.bonus"
+              class="text-center text-xs sm:text-sm text-muted-foreground mt-2"
             >
-              <span></span>{{ product.ctaLabel || `Beli Sekarang` }}
-            </a>
-            <p v-if="product.ctaHelperText || product.bonus" class="text-center text-sm text-muted-foreground mt-2">
               {{ product.ctaHelperText || product.bonus }}
             </p>
           </div>
-        </UContainer>
+        </div>
       </div>
     </template>
 
@@ -112,6 +107,11 @@
 </template>
 
 <script setup lang="ts">
+// Set layout to use product layout
+definePageMeta({
+  layout: 'product'
+})
+
 const route = useRoute()
 const slug = route.params.slug as string
 

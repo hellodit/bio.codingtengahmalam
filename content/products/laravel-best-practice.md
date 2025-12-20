@@ -16,15 +16,9 @@ ctaLabel: "Dapatkan eBook Laravel Best Practice"
 ctaHelperText: "Bonus mindset developer modern & update gratis setiap rilis Laravel."
 scalev_variant_id: "213232"
 ---
-
-## Naik Level dalam Membangun Aplikasi Laravel
-
 eBook **"Belajar Membuat Aplikasi Laravel Sesuai Standar Best Practice"** hadir sebagai panduan praktis untuk kamu yang ingin naik level dalam membangun aplikasi Laravel — dari sekadar "asal jalan" menjadi aplikasi yang profesional, rapi, dan siap di-scale.
 
 ## 📋 Daftar Isi
-
-
-
 ::feature-grid{columns="1" items='[{"title":"Cara menulis kode Laravel sesuai standar PSR-12","description":"Belajar menulis kode yang clean, mudah dibaca, dan konsisten mengikuti standar industri."},{"title":"Penerapan prinsip SOLID dan DRY dalam Laravel","description":"Implementasi prinsip arsitektur dan design pattern agar kode lebih terstruktur serta gampang dirawat."},{"title":"Teknik optimasi performa dengan Queue dan Redis","description":"Strategi meningkatkan performa aplikasi melalui background jobs, antrian, dan caching."},{"title":"Struktur routing dan repository untuk project besar","description":"Organisasi kode yang scalable dan siap dipakai di aplikasi enterprise maupun tim dengan banyak developer."},{"title":"Logging & monitoring yang bikin debugging lebih nyaman","description":"Setup observability yang tepat sehingga troubleshooting dan maintenance jadi lebih cepat dan efisien."},{"title":"Studi kasus nyata: Aplikasi Donasi Online terintegrasi Midtrans","description":"Penerapan konsep langsung dalam project real-world dengan integrasi payment gateway yang kompleks."}]'}
 ::
 
