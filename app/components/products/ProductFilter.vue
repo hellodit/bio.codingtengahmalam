@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center justify-between mb-4">
-    <h2 class="text-xl font-bold text-gray-900 dark:text-white">
+    <h2 class="text-xl font-bold text-foreground">
       Produk Digital
     </h2>
     <UButton
@@ -15,7 +15,7 @@
   <UCard v-if="showFilter" class="mb-4">
     <div class="space-y-4">
       <div>
-        <label class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">
+        <label class="text-sm font-medium text-foreground mb-2 block">
           Kategori
         </label>
         <USelect
@@ -27,7 +27,7 @@
       </div>
       
       <div>
-        <label class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 block">
+        <label class="text-sm font-medium text-foreground mb-2 block">
           Urutkan
         </label>
         <USelect

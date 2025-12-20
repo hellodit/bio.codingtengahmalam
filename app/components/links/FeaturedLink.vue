@@ -8,7 +8,7 @@
     trailing-icon="i-heroicons-arrow-top-right-on-square"
   >
     <p class="py-1 text-center">
-      <span v-if="link.icon" class="text-xl text-gray-500 dark:text-gray-400 mr-2">{{ link.icon }}</span>
+      <span v-if="link.icon" class="text-xl text-muted-foreground mr-2">{{ link.icon }}</span>
       <span>{{ link.title }}</span>
     </p>
   </UButton>

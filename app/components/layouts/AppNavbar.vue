@@ -1,7 +1,7 @@
 <template>
-  <nav class="border-b border-gray-200 dark:border-gray-800">
+  <nav class="border-b border-border py-2 px-4 md:sticky md:top-0 md:z-10 bg-white">
     <UContainer>
-      <div class="flex items-center justify-between h-16">
+      <div class="flex items-center justify-between h-10">
         <div class="flex items-center gap-4">
           <UButton
             to="/"

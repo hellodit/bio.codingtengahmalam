@@ -1,6 +1,6 @@
 <template>
   <div class="space-y-4">
-    <h2 class="text-xl font-bold text-gray-900 dark:text-white">
+    <h2 class="text-xl font-bold text-foreground">
       Featured Link
     </h2>
     <div class="space-y-3">

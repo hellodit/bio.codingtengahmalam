@@ -1,7 +1,7 @@
 <template>
   <div class="sneak-peek my-8">
     <div v-if="productName" class="mb-4">
-      <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+      <h3 class="text-lg font-semibold text-foreground">
         {{ productName }}
       </h3>
     </div>
@@ -42,18 +42,18 @@
         <button
           v-if="imageList.length > 1"
           @click="previousImage"
-          class="carousel-nav carousel-nav-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 dark:bg-gray-800/80 hover:bg-white dark:hover:bg-gray-800 rounded-full p-2 shadow-lg transition-all"
+          class="carousel-nav carousel-nav-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-card/80 hover:bg-card rounded-full p-2 shadow-lg transition-all border border-border"
           :disabled="currentIndex === 0"
         >
-          <UIcon name="i-heroicons-chevron-left" class="w-6 h-6 text-gray-900 dark:text-white" />
+          <UIcon name="i-heroicons-chevron-left" class="w-6 h-6 text-foreground" />
         </button>
         <button
           v-if="imageList.length > 1"
           @click="nextImage"
-          class="carousel-nav carousel-nav-next absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/80 dark:bg-gray-800/80 hover:bg-white dark:hover:bg-gray-800 rounded-full p-2 shadow-lg transition-all"
+          class="carousel-nav carousel-nav-next absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-card/80 hover:bg-card rounded-full p-2 shadow-lg transition-all border border-border"
           :disabled="currentIndex === imageList.length - 1"
         >
-          <UIcon name="i-heroicons-chevron-right" class="w-6 h-6 text-gray-900 dark:text-white" />
+          <UIcon name="i-heroicons-chevron-right" class="w-6 h-6 text-foreground" />
         </button>
       </div>
 
@@ -66,13 +66,13 @@
           class="carousel-dot w-2 h-2 rounded-full transition-all"
           :class="currentIndex === index 
             ? 'bg-primary w-8' 
-            : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'"
+            : 'bg-muted hover:bg-muted/80'"
           :aria-label="`Go to image ${index + 1}`"
         />
       </div>
 
       <!-- Image Counter -->
-      <div v-if="imageList.length > 1" class="text-center mt-2 text-sm text-gray-600 dark:text-gray-400">
+      <div v-if="imageList.length > 1" class="text-center mt-2 text-sm text-muted-foreground">
         {{ currentIndex + 1 }} / {{ imageList.length }}
       </div>
     </div>

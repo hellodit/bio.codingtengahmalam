@@ -1,7 +1,7 @@
 <template>
-  <footer class="border-t border-gray-200 dark:border-gray-800 py-6 mt-12">
+  <footer class="py-4 px-4">
     <UContainer>
-      <p class="text-center text-sm text-gray-600 dark:text-gray-400">
+      <p class="text-center text-sm text-muted-foreground">
         © {{ currentYear }} {{ name }}. All rights reserved.
       </p>
     </UContainer>

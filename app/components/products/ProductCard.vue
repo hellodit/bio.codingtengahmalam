@@ -1,7 +1,7 @@
 <template>
   <NuxtLink 
     :to="`/products/${product.slug}`" 
-    class="block bg-white dark:bg-gray-900 mb-3 rounded-lg border border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-200 w-full overflow-hidden group shadow-sm hover:shadow-md"
+    class="block bg-card mb-3 rounded-lg border border-border hover:bg-accent transition-all duration-200 w-full overflow-hidden group shadow-sm hover:shadow-md"
   >
     <div class="flex min-h-[130px]">
       <!-- Image Section -->
@@ -17,26 +17,26 @@
       <!-- Content Section -->
       <div class="w-1/2 p-4 flex flex-col justify-between">
         <div>
-          <h3 class="font-semibold text-gray-900 dark:text-white line-clamp-3 text-sm sm:text-base mb-2">
+          <h3 class="font-semibold text-card-foreground line-clamp-3 text-sm sm:text-base mb-2">
             {{ product.title }}
           </h3>
         </div>
         
         <div class="space-y-1">
-          <div class="text-xs text-gray-500 dark:text-gray-400 font-medium">
+          <div class="text-xs text-muted-foreground font-medium">
             Price
           </div>
           <div class="flex items-center gap-2 flex-wrap">
-            <span v-if="product.price > 0" class="text-base sm:text-lg font-bold text-gray-900 dark:text-white">
+            <span v-if="product.price > 0" class="text-base sm:text-lg font-bold text-foreground">
               Rp {{ formatPrice(product.price) }}
             </span>
-            <span v-else class="text-base sm:text-lg font-bold text-green-600 dark:text-green-400">
+            <span v-else class="text-base sm:text-lg font-bold text-primary">
               FREE
             </span>
             
             <span
               v-if="product.originalPrice && product.originalPrice > product.price"
-              class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 line-through"
+              class="text-xs sm:text-sm text-muted-foreground line-through"
             >
               Rp {{ formatPrice(product.originalPrice) }}
             </span>

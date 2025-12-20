@@ -1,6 +1,6 @@
 <template>
   <div>
-   <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
+   <h2 class="text-xl font-bold text-foreground mb-2">
       Penawaran Terbaru
     </h2>
 

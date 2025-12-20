@@ -4,7 +4,7 @@
       <!-- Back Button -->
       <NuxtLink 
         :to="`/products/${product.slug}`" 
-        class="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors mb-6"
+        class="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-6"
       >
         <UIcon name="i-heroicons-arrow-left" class="w-5 h-5" />
         <span class="font-medium">Kembali ke Detail Produk</span>
@@ -15,7 +15,7 @@
         <div class="lg:col-span-1">
           <UCard>
             <div class="space-y-4">
-              <h2 class="text-lg font-semibold text-gray-900 dark:text-white">
+              <h2 class="text-lg font-semibold text-foreground">
                 Ringkasan Pesanan
               </h2>
               
@@ -30,33 +30,33 @@
 
               <!-- Product Info -->
               <div class="space-y-2">
-                <h3 class="font-semibold text-gray-900 dark:text-white">
+                <h3 class="font-semibold text-foreground">
                   {{ product.title || product.name }}
                 </h3>
                 <div class="flex items-center gap-2">
                   <span
                     v-if="product.originalPrice > product.price"
-                    class="text-sm text-gray-500 line-through"
+                    class="text-sm text-muted-foreground line-through"
                   >
                     Rp {{ formatPrice(product.originalPrice) }}
                   </span>
-                  <span v-if="product.price > 0" class="text-lg font-bold text-primary-600 dark:text-primary-400">
+                  <span v-if="product.price > 0" class="text-lg font-bold text-primary">
                     Rp {{ formatPrice(product.price) }}
                   </span>
-                  <span v-else class="text-lg font-bold text-green-600 dark:text-green-400">
+                  <span v-else class="text-lg font-bold text-primary">
                     FREE
                   </span>
                 </div>
               </div>
 
               <!-- Divider -->
-              <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
+              <div class="border-t border-border pt-4">
                 <div class="flex items-center justify-between">
-                  <span class="font-semibold text-gray-900 dark:text-white">Total</span>
-                  <span v-if="product.price > 0" class="text-xl font-bold text-primary-600 dark:text-primary-400">
+                  <span class="font-semibold text-foreground">Total</span>
+                  <span v-if="product.price > 0" class="text-xl font-bold text-primary">
                     Rp {{ formatPrice(product.price) }}
                   </span>
-                  <span v-else class="text-xl font-bold text-green-600 dark:text-green-400">
+                  <span v-else class="text-xl font-bold text-primary">
                     FREE
                   </span>
                 </div>
@@ -69,7 +69,7 @@
         <div class="lg:col-span-2">
           <UCard>
             <template #header>
-              <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
+              <h2 class="text-xl font-semibold text-foreground">
                 Informasi Customer
               </h2>
             </template>
@@ -77,8 +77,8 @@
             <form @submit.prevent="handleSubmit" class="space-y-6">
               <!-- Customer Name -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Nama Lengkap <span class="text-red-500">*</span>
+                <label class="block text-sm font-medium text-foreground mb-2">
+                  Nama Lengkap <span class="text-destructive">*</span>
                 </label>
                 <UInput
                   v-model="form.customer_name"
@@ -94,8 +94,8 @@
 
               <!-- Customer Email -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Email <span class="text-red-500">*</span>
+                <label class="block text-sm font-medium text-foreground mb-2">
+                  Email <span class="text-destructive">*</span>
                 </label>
                 <UInput
                   v-model="form.customer_email"
@@ -112,8 +112,8 @@
 
               <!-- Customer Phone -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Nomor Telepon <span class="text-red-500">*</span>
+                <label class="block text-sm font-medium text-foreground mb-2">
+                  Nomor Telepon <span class="text-destructive">*</span>
                 </label>
                 <UInput
                   v-model="form.customer_phone"
@@ -123,10 +123,10 @@
                   size="lg"
                   :color="errors.customer_phone ? 'error' : 'primary'"
                 />
-                <p v-if="errors.customer_phone" class="mt-1 text-sm text-red-600 dark:text-red-400">
+                <p v-if="errors.customer_phone" class="mt-1 text-sm text-destructive">
                   {{ errors.customer_phone }}
                 </p>
-                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+                <p class="mt-1 text-xs text-muted-foreground">
                   Format: 62xxxxxxxxxx (contoh: 62812345678)
                 </p>
               </div>
@@ -153,7 +153,7 @@
                 >
                   {{ loading ? 'Memproses...' : 'Lanjutkan ke Pembayaran' }}
                 </UButton>
-                <p class="text-center text-sm text-gray-600 dark:text-gray-400 mt-3">
+                <p class="text-center text-sm text-muted-foreground mt-3">
                   Anda akan diarahkan ke halaman pembayaran Scalev
                 </p>
               </div>
@@ -166,8 +166,8 @@
     <!-- Loading State -->
     <div v-else-if="pending" class="flex items-center justify-center min-h-[400px]">
       <div class="text-center space-y-4">
-        <UIcon name="i-heroicons-arrow-path" class="w-8 h-8 animate-spin text-primary-500" />
-        <p class="text-gray-600 dark:text-gray-400">Memuat halaman checkout...</p>
+        <UIcon name="i-heroicons-arrow-path" class="w-8 h-8 animate-spin text-primary" />
+        <p class="text-muted-foreground">Memuat halaman checkout...</p>
       </div>
     </div>
 
@@ -175,11 +175,11 @@
     <div v-else class="flex items-center justify-center min-h-[400px]">
       <UCard class="max-w-md text-center">
         <div class="space-y-4">
-          <UIcon name="i-heroicons-exclamation-triangle" class="w-16 h-16 text-gray-400 mx-auto" />
-          <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
+          <UIcon name="i-heroicons-exclamation-triangle" class="w-16 h-16 text-muted-foreground mx-auto" />
+          <h2 class="text-2xl font-bold text-foreground">
             Produk Tidak Ditemukan
           </h2>
-          <p class="text-gray-600 dark:text-gray-400">
+          <p class="text-muted-foreground">
             Produk yang Anda cari tidak ditemukan.
           </p>
           <div class="flex gap-3 justify-center">

@@ -10,10 +10,10 @@
       <UBadge color="neutral" size="lg" variant="subtle">
         {{ profile.username }}
       </UBadge>
-      <h1 class="text-2xl font-bold text-gray-900 dark:text-white">
+      <h1 class="text-2xl font-bold text-foreground">
         {{ profile.name }}
       </h1>
-      <p class="text-base text-gray-600 dark:text-gray-300 max-w-md">
+      <p class="text-base text-muted-foreground max-w-md">
         {{ profile.bio }}
       </p>
     </div>
