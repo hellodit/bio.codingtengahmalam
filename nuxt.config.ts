@@ -20,6 +20,10 @@ export default defineNuxtConfig({
   
   // Nitro configuration for static generation
   nitro: {
+    // Alias configuration for server-side imports
+    alias: {
+      '#content/server': '@nuxt/content/runtime/server'
+    },
     prerender: {
       // Automatically discover and prerender linked pages
       crawlLinks: true,

@@ -2,7 +2,7 @@ export default defineNitroPlugin(async (nitroApp) => {
   nitroApp.hooks.hook('prerender:routes', async (ctx) => {
     try {
       // Use serverQueryContent for server-side content access during prerender
-      const { serverQueryContent } = await import('#content/server')
+      const { serverQueryContent } = await import('@nuxt/content/runtime/server')
       
       // Get all products from content collection
       const products = await serverQueryContent('products')
