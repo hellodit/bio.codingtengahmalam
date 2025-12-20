@@ -9,11 +9,13 @@
     </main>
     <AppFooter :name="profile.name" />
   </div>
+  <Analytics />
 </template>
 
 <script setup lang="ts">
 import AppFooter from '~/components/layouts/AppFooter.vue';
 import AppNavbar from '~/components/layouts/AppNavbar.vue';
+import { Analytics } from '@vercel/analytics/nuxt'
 
 const profile = useProfile()
 const route = useRoute()

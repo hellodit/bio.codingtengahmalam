@@ -30,9 +30,12 @@
     
     <AppFooter :name="profile.name" />
   </div>
+  <Analytics />
 </template>
 
 <script setup lang="ts">
+  import { Analytics } from '@vercel/analytics/nuxt'
+
 import AppFooter from '~/components/layouts/AppFooter.vue'
 import AppNavbar from '~/components/layouts/AppNavbar.vue'
 
