@@ -1,19 +1,21 @@
 <template>
-  <div class="flex flex-col items-center text-center space-y-4 py-6">
-    <img
-      :src="profile.avatar"
-      :alt="profile.name"
-      class="w-32 h-32 rounded-full object-cover"
-    />
+  <div class="flex flex-col items-center text-center space-y-2 py-3 gap-2">
+    <div class="flex items-center justify-center">
+      <img
+        :src="profile.avatar"
+        :alt="profile.name"
+        class="w-25 h-25 rounded-full object-cover"
+      />
+    </div>
     
     <div class="space-y-2">
-      <UBadge color="neutral" size="lg" variant="subtle">
-        {{ profile.username }}
+      <UBadge color="neutral" size="sm" variant="outline">
+        @{{ profile.username }}
       </UBadge>
       <h1 class="text-2xl font-bold text-foreground">
         {{ profile.name }}
       </h1>
-      <p class="text-base text-muted-foreground max-w-md">
+      <p class="text-sm text-muted-foreground max-w-sm">
         {{ profile.bio }}
       </p>
     </div>
