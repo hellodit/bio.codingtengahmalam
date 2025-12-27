@@ -1,6 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: true,
+  content: {
+    experimental: {
+      sqliteConnector: 'native',
+    },
+  },
   compatibilityDate: '2025-07-15',
   modules: [
     '@nuxt/ui',
