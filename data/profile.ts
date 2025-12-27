@@ -7,12 +7,12 @@ export const profileData = {
     {
       platform: "Instagram",
       url: "https://www.instagram.com/codingtengahmalam",
-      icon: "i-simple-icons-instagram"
+      icon: "i-lucide-instagram"
     },
     {
       platform: "YouTube",
       url: "https://www.youtube.com/@codingtengahmalam",
-      icon: "i-simple-icons-youtube"
+      icon: "i-lucide-youtube"
     }
   ]
 }

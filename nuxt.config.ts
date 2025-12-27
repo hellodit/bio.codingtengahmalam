@@ -21,25 +21,6 @@ export default defineNuxtConfig({
     storageKey: 'nuxt-color-mode'
   },
   css: ['~/assets/css/main.css'],
-  devtools: { enabled: true },
-  
-  routeRules: {
-    '/': { prerender: true },
-    '/products/**': { prerender: true },
-    '/products/**/checkout': { prerender: true }
-  },
-  
-  // Nitro configuration for static generation
-  nitro: {
-    alias: {
-      '#content/server': '@nuxt/content/runtime/server'
-    },
-    prerender: {
-      crawlLinks: true,
-      failOnError: false
-    }
-  },
-  
   // SEO Configuration
   runtimeConfig: {
     public: {

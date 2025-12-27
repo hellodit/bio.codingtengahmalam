@@ -10,7 +10,6 @@ order: 2
 purchaseUrl: https://codingtengahmalam.myr.id/pl/source-code-donasi
 bonus: Update gratis untuk versi terbaru & dokumentasi lengkap.
 ---
-
 <Video
   youtubeId="xA4uF1u5rlU"
   title="Source Code Laravel Best Practice - Platform Penggalangan Donasi dengan Pembayaran Otomatis"
