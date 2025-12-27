@@ -1,11 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+// @ts-ignore - process.env is available at build time
+const siteUrl = process.env.NUXT_PUBLIC_SITE_URL ?? 'https://bio.codingtengahmalam.com'
+
 export default defineNuxtConfig({
   ssr: true,
-  content: {
-    experimental: {
-      sqliteConnector: 'native',
-    },
-  },
+  // Removed sqliteConnector: 'native' to fix Vercel deployment
+  // Native SQLite doesn't work in serverless environments
+  // Content will use in-memory storage which works fine for prerendered pages
   compatibilityDate: '2025-07-15',
   modules: [
     '@nuxt/ui',
@@ -25,7 +26,7 @@ export default defineNuxtConfig({
   routeRules: {
     '/': { prerender: true },
     '/products/**': { prerender: true },
-    '/products/**/checkout': { index: false, prerender: true }
+    '/products/**/checkout': { prerender: true }
   },
   
   // Nitro configuration for static generation
@@ -42,7 +43,7 @@ export default defineNuxtConfig({
   // SEO Configuration
   runtimeConfig: {
     public: {
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://bio.codingtengahmalam.com',
+      siteUrl,
       siteName: 'Coding Tengah Malam',
       siteDescription: 'Saya Bantuin software engineer upgrade skill lebih cepat',
       siteLocale: 'id'
